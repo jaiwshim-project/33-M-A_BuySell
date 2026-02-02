@@ -45,7 +45,7 @@
 
     // 인사
     if(/^(안녕|하이|헬로|hi|hello)/.test(q)){
-      return {text:'안녕하세요! M&A 플랫폼 AI 어시스턴트입니다. 무엇을 도와드릴까요?',chips:['매물 찾기','M&A 절차 안내','세금/법률 질문','가치평가 상담','실사 안내','매물 등록 도움']};
+      return {text:'안녕하세요! AI상담톡입니다. 무엇을 도와드릴까요?',chips:['매물 찾기','M&A 절차 안내','세금/법률 질문','가치평가 상담','실사 안내','매물 등록 도움']};
     }
 
     // ── 1. 매물 추천 ──
@@ -234,7 +234,7 @@
     // FAB
     const fab = document.createElement('button');
     fab.className = 'ai-fab';
-    fab.setAttribute('aria-label','AI 상담');
+    fab.setAttribute('aria-label','AI상담톡');
     fab.innerHTML = '💬';
     document.body.appendChild(fab);
 
@@ -244,7 +244,7 @@
     chat.innerHTML = `
       <div class="ai-chat-header">
         <div class="avatar">🤖</div>
-        <div class="info"><h4>AI 상담 어시스턴트</h4><span>M&A 전문 AI</span></div>
+        <div class="info"><h4>AI상담톡</h4><span>M&A 전문 AI</span></div>
         <button class="close-chat" aria-label="닫기">✕</button>
       </div>
       <div class="ai-chat-body" id="aiChatBody"></div>
@@ -342,7 +342,7 @@
     }
 
     function showWelcome(){
-      addMsg('안녕하세요! M&A 플랫폼 AI 어시스턴트입니다. 😊\n\n병원·기업 M&A에 관한 모든 것을 도와드립니다.\n무엇이 궁금하신가요?','bot');
+      addMsg('안녕하세요! AI상담톡입니다. 😊\n\n병원·기업 M&A에 관한 모든 것을 도와드립니다.\n무엇이 궁금하신가요?','bot');
       showChips(['매물 찾기','M&A 절차 안내','세금/법률 질문','가치평가 상담','실사 안내','매물 등록 도움']);
     }
   }
