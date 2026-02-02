@@ -29,10 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (href === current) a.classList.add('active');
   });
 
-  // Accordion
+  // Accordion (smooth max-height)
   document.querySelectorAll('.accordion-header').forEach(h => {
     h.addEventListener('click', () => {
-      h.parentElement.classList.toggle('open');
+      const item = h.parentElement;
+      const body = item.querySelector('.accordion-body');
+      if (item.classList.contains('open')) {
+        body.style.maxHeight = '0';
+        body.style.padding = '0 24px';
+        item.classList.remove('open');
+      } else {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 18 + 'px';
+        body.style.padding = '0 24px 18px';
+      }
     });
   });
 
@@ -51,6 +61,36 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.card, .stat-card, .form-card, .expert-card, .article-item, .section, .step, .info-icon-card').forEach((el, i) => {
+    el.classList.add('animate-on-scroll');
+    const stagger = (i % 4) + 1;
+    el.classList.add('stagger-' + stagger);
+    observer.observe(el);
+  });
+
+  // Nav shadow on scroll
+  const nav = document.querySelector('.top-nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
+
+  // Init Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 });
 
 // Toast notification

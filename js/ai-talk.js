@@ -235,7 +235,7 @@
     const fab = document.createElement('button');
     fab.className = 'ai-fab';
     fab.setAttribute('aria-label','AI상담톡');
-    fab.innerHTML = '💬';
+    fab.innerHTML = '<img src="images/ai-assistant.png" alt="AI상담톡" class="ai-fab-img"><span class="ai-fab-label">AI 상담톡</span>';
     document.body.appendChild(fab);
 
     // Chat Panel
@@ -243,7 +243,7 @@
     chat.className = 'ai-chat';
     chat.innerHTML = `
       <div class="ai-chat-header">
-        <div class="avatar">🤖</div>
+        <div class="avatar"><img src="images/ai-assistant.png" alt="AI상담톡" style="width:28px;height:28px;object-fit:contain"></div>
         <div class="info"><h4>AI상담톡</h4><span>M&A 전문 AI</span></div>
         <button class="close-chat" aria-label="닫기">✕</button>
       </div>
@@ -264,14 +264,14 @@
     fab.addEventListener('click', () => {
       const isOpen = chat.classList.toggle('open');
       fab.classList.toggle('open', isOpen);
-      fab.innerHTML = isOpen ? '✕' : '💬';
+      fab.innerHTML = isOpen ? '✕' : '<img src="images/ai-assistant.png" alt="AI상담톡" class="ai-fab-img"><span class="ai-fab-label">AI 상담톡</span>';
       if(isOpen && body.children.length === 0) showWelcome();
       if(isOpen) input.focus();
     });
     chat.querySelector('.close-chat').addEventListener('click', () => {
       chat.classList.remove('open');
       fab.classList.remove('open');
-      fab.innerHTML = '💬';
+      fab.innerHTML = '<img src="images/ai-assistant.png" alt="AI상담톡" class="ai-fab-img"><span class="ai-fab-label">AI 상담톡</span>';
     });
 
     // Send
