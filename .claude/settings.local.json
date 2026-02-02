@@ -6,7 +6,14 @@
       "Bash(git add:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: add .claude configuration\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git clone:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd .claude configuration\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd .claude configuration\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(tree:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\n전체 UI 모던화: 애니메이션, Lucide 아이콘, AI상담톡 핑크 디자인\n\n- CSS: 그라데이션, 글래스모피즘, 스크롤 애니메이션, 향상된 호버 효과\n- JS: IntersectionObserver 스크롤 리빌, 네비 스크롤 그림자\n- 30개 HTML: Lucide Icons CDN 추가, 이모지→SVG 아이콘, 인라인스타일→CSS 클래스\n- ma-sell.html: 매각 의뢰 페이지 신규 구축\n- AI상담톡: 핑크 pill 버튼 + 이미지 심볼 + 텍스트 라벨\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)"
     ]
   }
 }
