@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>컨설팅 제안서 - M&A 플랫폼</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+.proposal-hero {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+.proposal-hero h1 { font-size: 2.2rem; margin-bottom: 12px; }
+.proposal-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+.proposal-section { padding: 50px 20px; max-width: 1200px; margin: 0 auto; }
+.proposal-section h2 { font-size: 1.6rem; color: #1a365d; margin-bottom: 30px; border-left: 4px solid #3182ce; padding-left: 15px; }
+.strategy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.strategy-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.strategy-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+.strategy-card .icon { width: 50px; height: 50px; background: linear-gradient(135deg, #3182ce, #2c5282); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #fff; }
+.strategy-card h3 { font-size: 1.15rem; color: #2d3748; margin-bottom: 10px; }
+.strategy-card p { font-size: 0.95rem; color: #718096; line-height: 1.6; }
+.service-flow { display: flex; flex-direction: column; gap: 20px; }
+.service-item {
+  background: linear-gradient(135deg, #f7fafc, #edf2f7);
+  border-radius: 12px;
+  padding: 25px 30px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border-left: 4px solid #3182ce;
+}
+.service-item .num { width: 36px; height: 36px; background: #3182ce; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+.service-item h4 { font-size: 1.1rem; color: #2d3748; margin-bottom: 8px; }
+.service-item ul { margin: 0; padding-left: 18px; color: #4a5568; font-size: 0.95rem; line-height: 1.8; }
+.medical-flow { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 40px; }
+.medical-item {
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  min-width: 150px;
+  position: relative;
+}
+.medical-item h4 { font-size: 1rem; color: #2c5282; margin-bottom: 6px; }
+.medical-item p { font-size: 0.85rem; color: #718096; }
+.medical-item::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); border: 8px solid transparent; border-left-color: #3182ce; }
+.medical-item:last-child::after { display: none; }
+.minimize-strategy { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.minimize-card { background: #2d3748; color: #fff; border-radius: 10px; padding: 25px; }
+.minimize-card h4 { color: #f6e05e; font-size: 1rem; margin-bottom: 8px; }
+.minimize-card p { font-size: 0.9rem; opacity: 0.9; line-height: 1.6; }
+.marketing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.marketing-card { background: #fff; border-radius: 10px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
+.marketing-card .icon { width: 44px; height: 44px; background: #ebf8ff; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #3182ce; }
+.marketing-card h4 { font-size: 1rem; color: #2d3748; margin-bottom: 6px; }
+.marketing-card p { font-size: 0.9rem; color: #718096; }
+.fee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.fee-card { background: #1a365d; color: #fff; border-radius: 12px; padding: 25px; text-align: center; }
+.fee-card .icon { width: 50px; height: 50px; background: #f6e05e; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: #1a365d; }
+.fee-card h4 { font-size: 1.05rem; margin-bottom: 10px; color: #f6e05e; }
+.fee-card p { font-size: 0.9rem; opacity: 0.9; line-height: 1.7; }
+.outlet-notice { background: #6b7c3f; color: #fff; border-radius: 8px; padding: 18px 25px; margin-top: 25px; font-size: 0.95rem; }
+.conclusion-box {
+  background: linear-gradient(135deg, #1a365d, #2c5282);
+  color: #fff;
+  border-radius: 16px;
+  padding: 50px 30px;
+  text-align: center;
+}
+.conclusion-box blockquote { font-size: 1.3rem; font-weight: 500; margin-bottom: 15px; line-height: 1.6; }
+.conclusion-box .highlight { color: #f6e05e; font-size: 1.1rem; }
+.partner-info { background: #f7fafc; border-radius: 12px; padding: 25px; margin-top: 30px; }
+.partner-info h4 { color: #2c5282; margin-bottom: 12px; }
+.partner-info ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.partner-info li { background: #fff; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; color: #4a5568; }
+@media (max-width: 768px) {
+  .proposal-hero h1 { font-size: 1.6rem; }
+  .medical-item::after { display: none; }
+  .medical-flow { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="index.html" class="logo">M&A<span>플랫폼</span></a>
+  <button class="nav-toggle">☰</button>
+  <ul class="nav-menu">
+    <li><a href="index.html">홈</a></li>
+    <li><a href="#">매물 등록</a><ul class="sub-menu"><li><a href="register-hospital.html">병원 매각 등록</a></li><li><a href="register-business.html">기업 매각 등록</a></li><li><a href="register-transfer.html">양도 등록</a></li></ul></li>
+    <li><a href="#">매물 검색</a><ul class="sub-menu"><li><a href="search-hospital.html">병원 매물</a></li><li><a href="search-business.html">기업 매물</a></li><li><a href="search-transfer.html">양도·양수 매물</a></li></ul></li>
+    <li><a href="#">M&amp;A 중개</a><ul class="sub-menu"><li><a href="ma-sell.html">매각 의뢰</a></li><li><a href="ma-buy.html">매수 의뢰</a></li><li><a href="ma-valuation.html">기업 가치평가</a></li><li><a href="ma-duediligence.html">실사 지원</a></li><li><a href="ma-status.html">거래 진행 현황</a></li></ul></li>
+    <li><a href="expert-matching.html">전문가 매칭</a></li>
+    <li><a href="consulting-proposal.html" class="active">컨설팅 제안</a></li>
+    <li><a href="#">정보센터</a><ul class="sub-menu"><li><a href="info-guide.html">M&amp;A 가이드</a></li><li><a href="info-legal.html">법률·세무 정보</a></li><li><a href="info-market.html">시장 동향</a></li><li><a href="info-cases.html">성공 사례</a></li></ul></li>
+    <li><a href="#">마이페이지</a><ul class="sub-menu"><li><a href="mypage-listings.html">내 매물 관리</a></li><li><a href="mypage-favorites.html">관심 매물</a></li><li><a href="mypage-deals.html">거래 진행</a></li><li><a href="mypage-inquiries.html">받은 제안/문의</a></li><li><a href="mypage-contracts.html">계약 관리</a></li><li><a href="mypage-payments.html">결제 내역</a></li><li><a href="mypage-profile.html">회원 정보</a></li></ul></li>
+    <li><a href="#">고객지원</a><ul class="sub-menu"><li><a href="support-inquiry.html">1:1 문의</a></li><li><a href="support-faq.html">FAQ</a></li><li><a href="support-guide.html">이용 가이드</a></li><li><a href="support-partner.html">제휴 문의</a></li></ul></li>
+  </ul>
+  <div class="nav-right"><a href="login.html" class="btn btn-outline btn-sm">로그인</a> <a href="signup.html" class="btn btn-primary btn-sm">회원가입</a></div>
+</nav>
+
+<div class="proposal-hero">
+  <h1>메디컬 크리닉센터 개발 컨설팅 제안</h1>
+  <p>지역 의료 인프라의 새로운 기준을 제시하는 365 Medical Platform</p>
+</div>
+
+<div class="page-wrap">
+  <!-- PDF 뷰어 -->
+  <section class="proposal-section">
+    <h2><i data-lucide="file-text"></i> 컨설팅 제안서 원본</h2>
+    <div class="pdf-viewer-container" style="background:#f1f5f9;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+      <embed src="docs/consulting-proposal.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="800px" style="border:none;display:block;">
+    </div>
+  </section>
+
+  <!-- 핵심 전략 -->
+  <section class="proposal-section">
+    <h2><i data-lucide="target"></i> 핵심 전략: 메디컬 센터 특화 구조</h2>
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="icon"><i data-lucide="pill"></i></div>
+        <h3>의료 특화 단일 테마</h3>
+        <p>명확한 브랜드 정체성으로 지역 내 의료 플랫폼 독점 지위를 확보합니다.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="icon"><i data-lucide="shield-check"></i></div>
+        <h3>경기 변동 대응력</h3>
+        <p>필수 소비 업종으로 경기 변동에도 안정적인 수익 구조를 유지합니다.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="icon"><i data-lucide="handshake"></i></div>
+        <h3>장기 임대 안정성</h3>
+        <p>의료업의 특성상 높은 임차 유지율과 지속 가능한 수익 모델을 제공합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 브레인트러스트 서비스 -->
+  <section class="proposal-section" style="background:#f7fafc;margin:0 -20px;padding:50px 20px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h2><i data-lucide="briefcase"></i> 브레인트러스트 서비스</h2>
+
+      <div class="partner-info">
+        <h4>파트너십 구조</h4>
+        <ul>
+          <li>제약사</li>
+          <li>제약유통사</li>
+          <li>NPL사</li>
+          <li>투자사</li>
+          <li>시행사</li>
+          <li>건물주</li>
+          <li>법인</li>
+        </ul>
+      </div>
+
+      <div class="service-flow" style="margin-top:30px;">
+        <div class="service-item">
+          <div class="num">1</div>
+          <div>
+            <h4>제안서 작성</h4>
+            <ul>
+              <li>협력업체 제공할 의료 상권분석 및 협력 제안서 작성</li>
+              <li>입지 관련 세미나 개최</li>
+              <li>입지광고 및 홍보 기사 작성 (의료신문, 의료커뮤니티)</li>
+              <li>학술대회 기획 및 입지 부스 참여</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="num">2</div>
+          <div>
+            <h4>임대차 컨설팅</h4>
+            <ul>
+              <li>한방병원, 피부과, 통증의학과, 안과, 치과, 대형약국 임대차 계약 진행</li>
+              <li>유명 네트워크 병원 체인 임대차 실시</li>
+              <li>병원의사 세미나 개최 및 사업 브리핑</li>
+              <li>임대차 관련 서류 제공 및 업무 대행</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="num">3</div>
+          <div>
+            <h4>기타 관리</h4>
+            <ul>
+              <li>MSO 설립 및 첨단재생의료기관</li>
+              <li>세금 관리 및 절세전략 수립</li>
+              <li>인테리어 및 장비 컨설팅</li>
+              <li>투자조합 활용한 의료 관련 회사 투자 컨설팅</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 메디컬 MD 구성 -->
+  <section class="proposal-section">
+    <h2><i data-lucide="layout-grid"></i> 메디컬 MD 구성 및 시너지 전략</h2>
+
+    <div class="medical-flow">
+      <div class="medical-item">
+        <h4>365의원 핵심</h4>
+        <p>연중무휴 기본 진료 허브</p>
+      </div>
+      <div class="medical-item">
+        <h4>피부·비만 클리닉</h4>
+        <p>미용·체형 집중 케어</p>
+      </div>
+      <div class="medical-item">
+        <h4>내과·외과</h4>
+        <p>전문 진단 및 수술</p>
+      </div>
+      <div class="medical-item">
+        <h4>통증·소아과</h4>
+        <p>통증관리와 아동진료</p>
+      </div>
+      <div class="medical-item">
+        <h4>헬스 아울렛 통합</h4>
+        <p>대형 통합 건강플랫폼</p>
+      </div>
+    </div>
+
+    <p style="text-align:center;color:#4a5568;margin-bottom:30px;">각 진료과목 간 명확한 기능 분리와 365일 진료 시스템으로 시너지 극대화</p>
+
+    <h3 style="color:#2c5282;margin-bottom:20px;">초기 공실 최소화 전략</h3>
+    <div class="minimize-strategy">
+      <div class="minimize-card">
+        <h4>생활 밀착 진료</h4>
+        <p>일상적 의료 수요에 최적화된 과목 구성으로 안정적인 환자 유입</p>
+      </div>
+      <div class="minimize-card">
+        <h4>체류형 동선</h4>
+        <p>휴게실, 라운지, 키즈카페 등 편의시설 배치로 고객 체류 시간 증대</p>
+      </div>
+      <div class="minimize-card">
+        <h4>지역 독점 플랫폼</h4>
+        <p>통합 의료 서비스로 지역 내 경쟁력 확보</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 통합 마케팅 전략 -->
+  <section class="proposal-section" style="background:#f7fafc;margin:0 -20px;padding:50px 20px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h2><i data-lucide="megaphone"></i> 메디컬 통합 마케팅 전략</h2>
+      <div class="marketing-grid">
+        <div class="marketing-card">
+          <div class="icon"><i data-lucide="globe"></i></div>
+          <h4>온라인 광고</h4>
+          <p>의료포털, 전문매체, SNS 마케팅을 통한 디지털 홍보</p>
+        </div>
+        <div class="marketing-card">
+          <div class="icon"><i data-lucide="user-check"></i></div>
+          <h4>개원 예정의 타겟팅</h4>
+          <p>봉직의, 공보의, 개원상담자 대상 직접 영업</p>
+        </div>
+        <div class="marketing-card">
+          <div class="icon"><i data-lucide="presentation"></i></div>
+          <h4>개원의 마케팅</h4>
+          <p>직접방문, 세미나, DM/TM 영업 활동</p>
+        </div>
+        <div class="marketing-card">
+          <div class="icon"><i data-lucide="network"></i></div>
+          <h4>협력업체 네트워킹</h4>
+          <p>금융기관, 컨설팅사, 의료기업 연계</p>
+        </div>
+      </div>
+      <p style="text-align:center;color:#718096;margin-top:25px;font-size:0.95rem;">닥터 커뮤니티, 의과대학 동문회, 대한의사협회 등 전방위 마케팅 채널 활용</p>
+    </div>
+  </section>
+
+  <!-- 컨설팅 용역 비용 -->
+  <section class="proposal-section">
+    <h2><i data-lucide="calculator"></i> 컨설팅 용역 및 지원 조건</h2>
+    <div class="fee-grid">
+      <div class="fee-card">
+        <div class="icon"><i data-lucide="file-check"></i></div>
+        <h4>컨설팅 수수료</h4>
+        <p>임대 평당 기준<br>계약일 20%<br>임대차계약일 30%<br>인테리어 공사일 20%<br>개원일 30% 분할 지급</p>
+      </div>
+      <div class="fee-card">
+        <div class="icon"><i data-lucide="paint-bucket"></i></div>
+        <h4>인테리어 지원</h4>
+        <p>통상 분양면적당 기준<br>임대차 계약 후 지급</p>
+      </div>
+      <div class="fee-card">
+        <div class="icon"><i data-lucide="calendar-check"></i></div>
+        <h4>렌트 프리</h4>
+        <p>입주일로부터 6개월<br>안정적 개원 준비 기간 보장</p>
+      </div>
+      <div class="fee-card">
+        <div class="icon"><i data-lucide="key"></i></div>
+        <h4>임대/분양 수수료</h4>
+        <p>별도 협의</p>
+      </div>
+    </div>
+    <div class="outlet-notice">
+      <strong>아울렛 조건:</strong> 보증금 없이 매출 연동 수수료 | 약국 아울렛 물량 선입고 지원
+    </div>
+  </section>
+
+  <!-- 결론 -->
+  <section class="proposal-section">
+    <div class="conclusion-box">
+      <blockquote>"특성화된 MD 및 전문 마케팅으로<br>안정성·지속성·확장성을 갖춘 투자 자산을 목표로 합니다."</blockquote>
+      <p class="highlight">"의료는 가장 안정적인 부동산 콘텐츠입니다."</p>
+      <p style="margin-top:30px;opacity:0.8;">BRAIN TRUST Medical Consulting Services</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="proposal-section" style="text-align:center;">
+    <h3 style="color:#2d3748;margin-bottom:20px;">컨설팅 상담 문의</h3>
+    <p style="color:#718096;margin-bottom:25px;">메디컬 센터 개발 및 운영에 관한 전문 상담을 받아보세요.</p>
+    <a href="support-inquiry.html" class="btn btn-primary" style="padding:14px 40px;font-size:1.05rem;">상담 문의하기</a>
+  </section>
+</div>
+
+<footer class="site-footer"><div class="footer-inner"><div><h4>M&A 플랫폼</h4><p class="footer-desc">병원·기업 전문 M&A 중개 플랫폼<br>안전하고 신뢰할 수 있는 거래를 제공합니다.</p></div><div><h4>매물</h4><a href="search-hospital.html">병원 매물</a><a href="search-business.html">기업 매물</a><a href="search-transfer.html">양도·양수</a></div><div><h4>서비스</h4><a href="ma-sell.html">매각 의뢰</a><a href="ma-buy.html">매수 의뢰</a><a href="expert-matching.html">전문가 매칭</a></div><div><h4>고객지원</h4><a href="support-faq.html">FAQ</a><a href="support-inquiry.html">1:1 문의</a><a href="support-partner.html">제휴 문의</a></div></div><div class="footer-bottom">© 2025 M&A플랫폼. All rights reserved.</div></footer>
+<script src="js/common.js"></script>
+<script src="js/ai-talk.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>
